@@ -1,0 +1,43 @@
+This is the attentive closeness centrality (ACC) algorithm, which measures individuals' efficiency of spreading opinions to all the others in a social network. 
+
+Currently, it takes undirected networks. Each edge in the input network must have weight even for unweighted ones (set all edge weights to 1.0 by default). It is possible to modify the source code to get rid of this limitation. 
+
+Copyright:
+==========
+You can modify and redistribute the program. Please DO NOT remove copyright and authors information in the source code. 
+
+For more copyright information, please refer to attached gpl.txt.
+
+How to compile:
+===============
+The code relies on boost library, so, we suppose you already have boost library installed on your system. For more information about the boost library, please visit the boost project website: http://www.boost.org/.
+
+The program was written in C++ using the Netbeans 6.9 IDE (http://www.netbeans.org) on an Opensuse 11.4 64-bit (http://www.opensuse.org) computer. You should get a zipped netbeans project folder. 
+
+Extract the compressed folder to a convenient place, and get into 'AttentiveCLS' folder. Type 'make' command in a terminal within the folder. After these steps, you should get an executable 'attentivecls'. There is a symbol link to the executable in the folder for quick access to the program.
+
+The program was successfully compiled and run on OpenSuse 11.4, Ubuntu 10.4, and Mac OS X 10.5.x.
+
+How to run:
+===========
+In a terminal, type the executable name. It will print out brief instruction:
+
+attentivecls
+
+Generally, you can run the program with a undirected, unweighted network using an optional alpha:
+
+attentivecls graph.txt U 0.5
+
+The program reads undirected network 'graph.txt' and runs the ACC centrality with alpha = 0.5. It prints results to 'results.txt'. Each line of the results is a pair of node name and score, tab delimited.
+
+
+Graph format:
+=============
+Currently, ACC only takes undirected graph. The graph file must be in format of:
+<source_node> <target_node> <weight>
+
+The weight is the strength of the edge, not distance. We take the inverse of the weight as distance, and the code supposes we compute distance from weight in this way.
+
+Questions:
+==========
+Any concerns, please send a message to lux3@cs.rpi.edu. 
