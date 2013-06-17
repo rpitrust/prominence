@@ -1,0 +1,60 @@
+This is deconstruction of centrality which deconstructs centrality measures into local and community dimensions. 
+
+It first acquires a partition of a network by a community detection algorithm, and constructs local networks and a community-meta network. Centrality measures are then applied on these networks. Local networks are constructed by 'createComm.py' script, while community-meta network is constructed by the executable compiled from 'main.cpp'.
+
+Copyright:
+==========
+You can modify and redistribute the program. Please DO NOT remove copyright and authors information in the source code. 
+
+For more copyright information, please refer to attached gpl.txt.
+
+How to compile:
+===============
+The code relies on boost library, so, we suppose you already have boost library installed on your system. For more information about the boost library, please visit the boost project website: http://www.boost.org/.
+
+The program was written in C++ using the Netbeans 6.9 IDE (http://www.netbeans.org) on an Opensuse 11.4 64-bit (http://www.opensuse.org) computer. You should get a zipped netbeans project folder. 
+
+Extract the compressed folder to a convenient place, and get into 'CommDistHashmap' folder. Type 'make' command in a terminal within the folder. After these steps, you should get an executable 'commdisthashmap'. There is a symbol link to the executable in the folder for quick access to the program.
+
+The program was successfully compiled and run on OpenSuse 11.4, Ubuntu 10.4, and Mac OS X 10.5.x.
+
+How to run:
+===========
+1) To get community-meta network:
+---------------------------------
+In a terminal, type the executable name. It will print out brief instruction:
+
+commdisthashmap
+
+Generally, you can run the program as follows:
+
+commdisthashmap graph.txt clusAssigns.txt
+
+The program reads undirected network 'graph.txt' and its partition by a community detection algorithm, and computes community distances with sample probability = 0.05. It prints results to 'clus_distances_mean.txt'. Each line of the results is a pair of node names and edge distance for the pair of nodes, tab delimited.
+
+2) To get local networks:
+-------------------------
+In a terminal, type 'python createComm.py'. It prints out usage information. Generally,
+
+python createComm.py clusAssigns.txt graph.txt
+
+The program reads cluster assignments and the global network, and outputs community-induced local networks. Each local network only contains nodes from the same community, and edges between these nodes. These local networks are stored in file 'clusterXs_edges.txt' where X is the cluster ids.
+
+Graph format:
+=============
+Currently, the program takes undirected graph. The graph file must be in format of:
+<source_node> <target_node> <weight>
+
+The weight is the distance of the edge.
+
+
+Cluster assignments format:
+===========================
+Each line of the cluster assignments must be:
+<node> <cluster_id>
+
+Cluster id must be a non-negative integer.
+
+Questions:
+==========
+Any concerns, please send a message to lux3@cs.rpi.edu. 
