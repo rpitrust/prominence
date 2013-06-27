@@ -1,0 +1,70 @@
+This is the iterative hyperedge ranking (iHypR) algorithm, which infers actors' prominence in heterogeneous networks by utilizing hyperedges' structure of objects.
+
+
+Copyright:
+==========
+Copyright (c) 2013, Xiaohui Lu, Sibel Adali and Malik Magdon-Ismail
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+	• Redistributions of source code must retain the above copyright notice, 
+this list of conditions and the following disclaimer.
+	• Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+Any publication resulting from the use of this work must cite the
+following publication :
+	S. Adali, Xiaohui Lu and Malik Magdon-Ismail, "iHypR: Prominence Ranking
+	in Networks of Collaborations with Hyperedges", accepted to appear in
+	Transactions on Knowledge Discovery from Data, 2013.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+How to compile:
+===============
+The program was written in C++ using the Netbeans 6.9 IDE (http://www.netbeans.org) on an Opensuse 11.4 64-bit computer. You should get a compressed netbeans project folder. 
+
+Extract the compressed folder to a convenient place, and get into 'iHypR' folder. Type 'make' command in a terminal within the folder. After these steps, you should get an executable 'ihypr'. There is a symbol link to the executable in the folder for quick access to the program.
+
+The program was successfully compiled and ran on OpenSuse 11.4, Ubuntu 10.4, and Mac OS X 10.5.x.
+
+How to run:
+===========
+In a terminal, type the executable name, following by a network and optional 0 or 1. For example:
+
+ihypr net.txt
+
+ihypr net.txt 1
+
+The first command make the program to run with A-O-H relations, while the second only uses A-H relations.
+
+The results will be stored in a text file named 'actor_n.txt', where n is an integer for number of iterations. Each line of the results is a pair of actor name and score, tab delimited.
+
+The algorithm is very similar to HITS, however, it is not linear. Therefore, for some networks, it may not converge. In such a case, the program will stop at 1000 iterations. Usually, it takes less 100 iterations in most networks.
+
+
+Input format:
+=============
+The program requires strict format of input file:
+
+1) The first line must be max_actor_id max_object_id max_hyperedge_id.
+2) Each of the rest lines must be actor_id object_id hyperedge_id.
+3) All ids must be positive integers starting with 1.
+
+
+Questions:
+==========
+Any concerns, please send a message to lux3@cs.rpi.edu. 

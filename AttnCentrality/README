@@ -1,0 +1,65 @@
+This is the attentive betweenness centrality algorithm, which infers importance scores of actors in social networks. 
+
+Currently, it takes undirected and unweighted graph. However, each input edge must have weight which could be any number now. It is possible to modify the source code to get rid of this limitation. We keep this for future expansion to weighted graph.
+
+Copyright:
+==========
+Copyright (c) 2013, Xiaohui Lu, Sibel Adali and Malik Magdon-Ismail
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+	• Redistributions of source code must retain the above copyright notice, 
+this list of conditions and the following disclaimer.
+	• Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+Any publication resulting from the use of this work must cite the
+following publication :
+	S. Adali, X. Lu and M. Magdon-Ismail, "Attentive Betweenness Centrality
+	(ABC): Considering Options and Bandwidth When Measuring Criticality".
+	SocialCom/PASSAT 2012: 358-367.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+How to compile:
+===============
+The code use boost library, so, we suppose you already have boost library installed on your system. For more information about boost library, please visit: http://www.boost.org/.
+
+The program was written in C++ using the Netbeans 6.9 IDE (http://www.netbeans.org) on an Opensuse 11.4 64-bit computer. You should get a compressed netbeans project folder. 
+
+Extract the compressed folder to a convenient place, and get into 'AttnCentrality' folder. Type 'make' command in a terminal within the folder. After these steps, you should get an executable 'attncentrality'. There is a symbol link to the executable in the folder for quick access to the program.
+
+The program was successfully compiled and ran on OpenSuse 11.4, Ubuntu 10.4, and Mac OS X 10.5.x.
+
+How to run:
+===========
+In a terminal, type the executable name, following by a graph and optional alpha. For example:
+
+attncentrality graph.txt 0.5
+
+The program reads 'graph.txt' and runs the ABC centrality with alpha = 0.5.
+
+The results will be stored in a text file named 'results.txt'. Each line of the results is a pair of node name and score, tab delimited.
+
+
+Graph format:
+=============
+Currently, ABC only takes undirected, unweighted graph. The graph file must be in format of:
+<source_node> <target_node> <weight>
+
+Questions:
+==========
+Any concerns, please send a message to lux3@cs.rpi.edu. 
